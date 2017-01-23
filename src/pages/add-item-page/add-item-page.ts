@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { NavController, ViewController, AlertController } from 'ionic-angular';
 import * as moment from 'moment';
 
 /*
