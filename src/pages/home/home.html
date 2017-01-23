@@ -1,0 +1,78 @@
+<ion-menu [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Filter your todos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list radio-group [(ngModel)]="priority" (ionChange)="sortByPriority()">
+      <ion-list-header>
+        Priorities
+      </ion-list-header>
+      <ion-item>
+        <ion-label>All</ion-label>
+        <ion-radio value="all" name="priority" ngDefaultControl checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Usual</ion-label>
+        <ion-radio value="usual" name="priority" ngDefaultControl checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label >Important</ion-label>
+        <ion-radio value="important" name="priority" ngDefaultControl></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Very Important</ion-label>
+        <ion-radio  value="very-important" name="priority" ngDefaultControl class="last-radio"></ion-radio>1
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-header>
+  <ion-navbar>
+    <button color="custom-black" ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Todos!
+    </ion-title>
+    <ion-buttons end>
+    	<button color="custom-black" ion-button icon-only (click)="addItem()">
+    		<ion-icon name="add-circle">
+    			
+    		</ion-icon>
+    	</button>
+    </ion-buttons>	
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding #content>
+ <ion-list>
+ 	<ion-item class="todo-item" *ngFor="let item of viewList" (click)="viewItem(item)" [ngClass]="{'expired': hasExpired(item)}">
+      <ion-grid > 
+        <ion-row >
+          <ion-col width-100>
+            <div class="basic-info">
+            <div class="additional-info">
+              <div ion-content class="date-time" [hidden]="!item.dateTime">
+                {{item.dateTime}}
+              </div>
+              <div ion-content class="priority" [hidden]="!item.priority" [ngClass]="{'usual': item.priority == 'usual', 'important': item.priority == 'important', 'very-important': item.priority == 'very important'}">
+                {{item.priority}}
+              </div>
+            </div>
+              {{item.title}}
+            </div>
+            <div class="done-image-container" [hidden]="!item.done">
+            <ion-icon [ngClass]="{'hidden': !item.done}" class="done-image" color="primary" name="checkmark"></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>  
+    </ion-grid>
+ 	</ion-item>
+ </ion-list>
+</ion-content>

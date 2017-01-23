@@ -1,0 +1,31 @@
+<ion-header>
+      <ion-fab top right>
+         <button ion-fab [color]="item.done ? 'primary' : item.priority == 'very important' ? 'very-important' : item.priority"><ion-icon name="more"></ion-icon></button>
+          <ion-fab-list side="bottom">
+           <button ion-fab (click)="editItem()"><ion-icon name="create"></ion-icon></button>
+           <button ion-fab (click)="markDone()"><ion-icon name="checkmark"></ion-icon></button>
+           <button ion-fab (click)="deleteItem()"><ion-icon name="trash"></ion-icon></button>
+          </ion-fab-list>
+      </ion-fab>
+  <ion-navbar class="navigation" [color]="item.done ? 'primary' : item.priority == 'very important' ? 'very-important' : item.priority">
+    <ion-title>
+    <div class="secondary-properties" [hidden]="!item.dateTime && !item.priority">
+      <div class="item-date-time" [hidden]="!item.dateTime">
+        {{item.dateTime}}
+      </div>
+    </div>
+    <div class="item-title">
+      {{item.title}}
+    </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-card [hidden]="!item.description"> 
+    <ion-card-content #item_description contenteditable="false" >
+      {{item.description}}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

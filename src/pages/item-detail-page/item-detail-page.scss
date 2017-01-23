@@ -1,0 +1,133 @@
+page-item-detail-page {
+	.toolbar-title {
+	white-space: normal;
+	text-overflow: clip;
+	}
+	.action-button
+	{
+		color: #fff;
+		font-size: 20px;
+		padding-left: 5px;
+		margin-right: 40px;
+		cursor: pointer;
+		&:last-child
+		{
+			margin-right: 0px;
+		}
+	}
+	.description-input
+	{
+		width: 100%;
+		// border: none;
+		// resize: none;
+		// overflow: auto;
+	}
+	.list-md
+	{
+		margin-bottom: 0;
+	}
+	.item-md
+	{
+		background-color: #32db64;
+		color: #fff;
+		padding-left: 0;
+		font-size: 30px;
+
+	}
+	.label-md
+	{
+		background-color: #32db64;
+		text-align: left;
+		font-family: 'Roboto';
+		padding-left: 0;
+		padding-right: 0;
+		font-weight: 300;
+		color: #fff!important;
+		white-space: normal;
+		text-overflow: clip!important;
+	}
+	.done
+	{
+		color: #32db64;
+		transition: color 0.3s ease;
+	}
+	.secondary-properties
+	{
+		display: block;
+		font-size: 15px;
+	    opacity: 0.8;
+	    margin-top: 10px;
+		.item-date-time
+		{
+			display: inline-block;
+			margin-right: 5px;
+		}
+		.priority
+		{
+			display: inline-block;
+			font-size: 14px;
+		}
+
+	}
+	
+	.item-title
+	{
+	   display: block;
+	}
+
+	.appear
+	{
+		animation: appear 0.3s;
+	}
+	@keyframes appear
+	{
+		0% {opacity: 0}
+		100% {opacity: 1}
+	}
+}
+
+.ios
+{
+	page-item-detail-page
+	{
+		.back-button.show-back-button 
+		{
+		    display: inline-block;
+		    position: absolute;
+		}
+		.toolbar-ios ion-title
+		{
+			position: relative;
+			padding: 0 65px;
+		}
+		.navigation
+		{
+			padding: 10px 0;
+		}
+	}
+}
+.md
+{
+	page-item-detail-page .item-title 
+	{
+    	padding-right: 10px;
+	}
+
+	page-item-detail-page
+	{
+		.back-button.show-back-button 
+		{
+		    display: inline-block;
+		    position: absolute;
+		}
+		.toolbar-md ion-title
+		{
+			position: relative;
+			padding: 0 45px;
+		}
+		.navigation
+		{
+			padding: 10px 0;
+		}
+	}
+}

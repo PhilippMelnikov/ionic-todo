@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+        Edit Item
+    </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+    <ion-list radio-group [(ngModel)]="priority">
+ 
+      <ion-item>
+        <ion-label floating>Title</ion-label>
+        <ion-input type="text" [(ngModel)]="title"></ion-input>
+      </ion-item>
+ 
+      <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-input type="text" [(ngModel)]="description"></ion-input>
+      </ion-item>
+
+      <ion-item>
+      		<img class="clear-icon" src="img/cross-128.png" alt="Clear">
+	  	  <ion-datetime class="date-picker" id="task-date" displayFormat="DD.MM.YYYY" [(ngModel)]="date" min="2017" max="2027-12-31" >
+	  	  </ion-datetime>
+      </ion-item>
+
+      <ion-item>
+      <!-- <ion-label for="time" floating>Time</ion-label> -->
+  	  <ion-datetime id="task-time" displayFormat="HH:mm" [(ngModel)]="time" ></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+      <ion-label>Usual</ion-label>
+      <ion-radio value="usual" name="priority" ngDefaultControl checked>Usual</ion-radio>
+
+      </ion-item>
+
+      <ion-item>
+      <ion-label >Important</ion-label>
+        <ion-radio value="important" name="priority" ngDefaultControl>Important</ion-radio>
+      
+
+      </ion-item>
+
+      <ion-item>
+      <ion-label>Very Important</ion-label>
+        <ion-radio class="last-radio" value="very important" name="priority" ngDefaultControl>Very Important</ion-radio>1
+
+      </ion-item>	
+ 
+    </ion-list>
+ 
+    <button full ion-button color="primary" (click)="saveItem()">Save</button>
+      <ion-icon [ngClass]="{'hidden': !date}" class="clear-date-icon" (click)="clearDate()" name="close"></ion-icon>
+      <ion-icon [ngClass]="{'hidden': !time}" class="clear-time-icon" (click)="clearTime()" name="close"></ion-icon>
+  
+ 
+</ion-content>
